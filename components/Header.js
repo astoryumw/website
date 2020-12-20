@@ -7,8 +7,11 @@ const linkStyle = {
 export default function Header() {
 	return (
 		<div align='center'>
-			<Link href="/timer">
-				<a style={linkStyle}>Timer</a>
+			<Link href="/">
+				<a style={linkStyle}>Home</a>
+			</Link>
+			<Link href="/guide">
+				<a style={linkStyle}>The Beginners Method</a>
 			</Link>
 		</div>
 	)

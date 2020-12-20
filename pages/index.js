@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Layout from '../components/MyLayout.js';
-import Table from 'react-bootstrap/Table'
+import Table from 'react-bootstrap/Table';
+// import './appStyles.css';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -32,6 +33,7 @@ export default class Home extends React.Component {
   textInput = () => {
     clearInterval(this.timer);
   };
+
   updateState(e) {
     this.setState({ milliSecondsElapsed: e.target.milliSecondsElapsed });
   }
@@ -164,6 +166,8 @@ export default class Home extends React.Component {
     return (
 	    <Layout>
 
+      <h1 className='colorMe'>Yay!</h1>
+
       <Table striped bordered hover align="right" width="200px">
         <thead>
           <tr>
@@ -173,7 +177,7 @@ export default class Home extends React.Component {
 
         <tbody>
           <tr>
-            <td>{this.state.myArray.join("\n")}</td>
+            <td>{this.state.myArray.join(", ")}</td>
           </tr>
         </tbody>
       </Table>
@@ -229,9 +233,7 @@ export default class Home extends React.Component {
         </Table>
 
 
-        
       </Layout>
-
 
 
     );
