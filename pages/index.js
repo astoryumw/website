@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
+import "../styles.scss"
 // import './appStyles.css';
 
 export default class Home extends React.Component {
@@ -165,27 +166,26 @@ export default class Home extends React.Component {
     const myTotal = this.state.total;
     return (
 	    <Layout>
-
-      <h1 className='colorMe'>Yay!</h1>
+      <div className='background'>
 
       <Table striped bordered hover align="right" width="200px">
         <thead>
           <tr>
-            <th>Last Time</th>
+            <th className="text">Last Time</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td>{this.state.myArray.join(", ")}</td>
+            <td className="text">{this.state.myArray.join(", ")}</td> 
           </tr>
         </tbody>
       </Table>
 
-      <p>Press the spacebar to start/stop the timer.</p>
-      <p>Press the c button to clear everything.</p>
+      <p className="text">Press the spacebar to start/stop the timer.</p>
+      <p className="text">Press the c button to clear everything.</p>
 
-	      <div className="index" align='center'>
+	      <div className="index" align='center' className="text">
 	        <input 
 	          value={this.state.milliSecondsElapsed/100}
 	          onChange={this.updateState}
@@ -206,7 +206,7 @@ export default class Home extends React.Component {
 
 
 
-        <Table striped bordered hover align="center" width="200px">
+        <Table striped bordered hover align="center" width="200px" className="text">
           <thead>
             <tr>
               <th>Average</th>
@@ -232,7 +232,7 @@ export default class Home extends React.Component {
 
         </Table>
 
-
+      </div>
       </Layout>
 
 
