@@ -3,8 +3,7 @@ import Header from './Header';
 const layoutStyle = {
   margin: 20,
   padding: 20,
-  border: '1px solid #DDD',
-  
+  border: '2px solid #000000',
 }
 
 // imports Header pages in the layoutStyle above, index will import this

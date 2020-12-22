@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
-// import './appStyles.css';
+
+
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -102,12 +103,13 @@ export default class Home extends React.Component {
         low: this.state.milliSecondsElapsed
       })
     }
-    this.setState( // adding the value to the array and then clearing the timer, shifting focus to start button
+    this.setState( // adding the value to the array
       (previousState) => ({
         timerInProgress: false,
-        myArray: [
-          ...previousState.myArray, // <-- shallow copy existing data
-          this.state.milliSecondsElapsed / 100 // <-- add new time
+        // [{this.state.milliSecondsElapsed / 100}].concat(myArray);
+       myArray: [
+          this.state.milliSecondsElapsed / 100, // <-- add new time
+          ...previousState.myArray // <-- shallow copy existing data
         ]
       }),
       () => {
@@ -161,31 +163,33 @@ export default class Home extends React.Component {
 
 
   // find the average AT EVERY GO 
-
+  // <td className="text">{this.state.myArray.join(", ")}</td> line 180
+  // "striped bordered hover" was using this in table but it was giving me an error
   render() {
     const myTotal = this.state.total;
     return (
 	    <Layout>
-      <div className='background'>
+      <div className='background' style={{height:575}}>
 
-      <Table striped bordered hover align="right" width="200px">
+      <Table align="right" height="200px" width="200px" className='table'>
         <thead>
           <tr>
-            <th className="text">Last Time</th>
+            <th className="text" align="center">Last Time</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td className="text">{this.state.myArray.join(", ")}</td> 
+            <td className="text">{this.state.myArray.join(", ")}</td>
           </tr>
         </tbody>
       </Table>
 
-      <p className="text">Press the spacebar to start/stop the timer.</p>
-      <p className="text">Press the c button to clear everything.</p>
+      <p className="text" align='left'>Press the spacebar to start/stop the timer.</p>
+      <p className="text" align='left'>Press the c button to clear everything.</p>
 
-	      <div className="index" align='center' className="text">
+
+	      <div align='center' className="text" height="200px">
 	        <input 
 	          value={this.state.milliSecondsElapsed/100}
 	          onChange={this.updateState}
@@ -206,9 +210,9 @@ export default class Home extends React.Component {
 
 
 
-        <Table striped bordered hover align="center" width="200px" className="text">
+        <table align="center" width="200px" className="text">
           <thead>
-            <tr>
+            <tr height="100px">
               <th>Average</th>
               <th>Fastest</th>
               <th>Slowest</th>
@@ -230,7 +234,7 @@ export default class Home extends React.Component {
           </tbody>
 
 
-        </Table>
+        </table>
 
       </div>
       </Layout>

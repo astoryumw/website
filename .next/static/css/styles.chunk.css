@@ -3,8 +3,20 @@
 
 .background {
   background-color: #778899;
-  color: #FFFFFF; }
+  color: #FFFFFF;
+  background-size: cover; }
 
 .text {
   color: black; }
+
+.table {
+  border: 5px solid #000000;
+  max-height: 200px;
+  overflowY: auto;
+  display: block;
+  overflow: scroll; }
+
+.headerBackground {
+  color: black;
+  background-size: cover; }
 
