@@ -3,21 +3,20 @@ import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
 
-
+/* I should write a delete last button */
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       myArray: [], // <- add initial empty array
-      data: [], // this'll be the table?
       milliSecondsElapsed: 0,
       total: 0, // this is my total, add the times each go through to the total and then divide by amount of times
       average: 0,
       high: 0, // highest value
       low: 0, // lowest value
       count: 0,
-      last: 0,
+      last: 0, // the last element recieved
       timerInProgress: false, // state to detect whether timer has started
     };
     this.updateState = this.updateState.bind(this);
@@ -55,6 +54,9 @@ export default class Home extends React.Component {
     if (e.keyCode === 99) {
       this.clearBtn.click();
     }
+    if (e.keyCode === 100) {
+      this.deleteBtn.click();
+    }
   };
 
   handleStart = () => {
@@ -86,7 +88,7 @@ export default class Home extends React.Component {
       total: this.state.total + this.state.milliSecondsElapsed
     });
     this.setState({
-      last: this.state.milliSecondsElapsed/100
+      last: this.state.milliSecondsElapsed
     })
     if (this.state.high < this.state.milliSecondsElapsed) { // finds slowest time
       this.setState({
@@ -110,7 +112,7 @@ export default class Home extends React.Component {
        myArray: [
           this.state.milliSecondsElapsed / 100, // <-- add new time
           ...previousState.myArray // <-- shallow copy existing data
-        ]
+        ],
       }),
       () => {
         clearInterval(this.timer);
@@ -162,6 +164,55 @@ export default class Home extends React.Component {
   };
 
 
+  delete = () => { // should delete the last item
+    
+    var array=this.state.myArray;
+    var array2=[];
+
+    var last = array[0]
+    var add=0;
+
+
+
+
+    for (var u=1; u<array.length; u++) {
+      array2.push(array[u]);
+    }
+
+    this.setState({ 
+      myArray: this.state.myArray.splice(1) // to delete first element in the last time list (the last element added)
+    })
+
+
+    this.setState({
+      low: (Math.min(...array2)*100)
+    })
+
+    this.setState({
+      high: (Math.max(...array2)*100)
+    })
+
+
+    // find average
+    for (var i=0; i<array2.length; i++) {
+      add = add + array2[i];
+    }
+
+
+    this.setState({
+      total: add*100
+    })
+
+
+
+
+
+ 
+
+    this.startBtn.focus();
+  };
+
+
   // find the average AT EVERY GO 
   // <td className="text">{this.state.myArray.join(", ")}</td> line 180
   // "striped bordered hover" was using this in table but it was giving me an error
@@ -185,8 +236,9 @@ export default class Home extends React.Component {
         </tbody>
       </Table>
 
-      <p className="text" align='left'>Press the spacebar to start/stop the timer.</p>
-      <p className="text" align='left'>Press the c button to clear everything.</p>
+      <p className="text" align='left'>Press the <b>spacebar</b> to start/stop the timer.</p>
+      <p className="text" align='left'>Press the <b>c</b> button to clear everything.</p>
+      <p className="text" align='left'>Press the <b>d</b> button to delete the last time.</p>
 
 
 	      <div align='center' className="text" height="200px">
@@ -196,15 +248,23 @@ export default class Home extends React.Component {
 	          ref={this.textInput}
 	          readOnly={true}
 	        />
+
 	        <button onClick={this.handleStart} ref={(ref) => (this.startBtn = ref)}>
 	          START
 	        </button>
+
 	        <button onClick={this.handleStop} ref={(ref) => (this.stopBtn = ref)}>
 	          STOP
 	        </button>
+
           <button onClick={this.clear} ref={(ref) => (this.clearBtn = ref)}>
-            CLEAR
+            CLEAR 
           </button>
+
+          <button onClick={this.delete} ref={(ref) => (this.deleteBtn = ref)}>
+            DELETE
+          </button>
+
 	        <h1>{this.state.milliSecondsElapsed/100}</h1>
 	      </div>
 
