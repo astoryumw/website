@@ -2,9 +2,10 @@
   color: red; }
 
 .background {
-  background-color: #778899;
+  background-color: #87CEEB;
   color: #FFFFFF;
-  background-size: cover; }
+  background-size: cover;
+  border: 1px solid black; }
 
 .text {
   color: black; }
@@ -19,4 +20,12 @@
 .headerBackground {
   color: black;
   background-size: cover; }
+
+.fixed {
+  position: fixed;
+  bottom: 62px; }
+
+.center {
+  margin-left: 10px;
+  color: black; }
 

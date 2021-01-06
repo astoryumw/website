@@ -8,6 +8,7 @@ import "../styles.scss"
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {name:"..."};
     this.state = {
       myArray: [], // <- add initial empty array
       milliSecondsElapsed: 0,
@@ -37,6 +38,15 @@ export default class Home extends React.Component {
 
   updateState(e) {
     this.setState({ milliSecondsElapsed: e.target.milliSecondsElapsed });
+  }
+
+  handleUpdate(evt) {
+    this.setState({name: evt.target.value});
+  }
+
+  async handleAddName(evt) {
+    const user = await addInfo(this.state.name);
+    this.setState({user});
   }
   
 
@@ -172,6 +182,8 @@ export default class Home extends React.Component {
     var last = array[0]
     var add=0;
 
+    // if array2 is empty - get rid of things saying infinity
+
 
 
 
@@ -179,36 +191,37 @@ export default class Home extends React.Component {
       array2.push(array[u]);
     }
 
-    this.setState({ 
-      myArray: this.state.myArray.splice(1) // to delete first element in the last time list (the last element added)
-    })
-
-
-    this.setState({
-      low: (Math.min(...array2)*100)
-    })
-
-    this.setState({
-      high: (Math.max(...array2)*100)
-    })
-
-
-    // find average
-    for (var i=0; i<array2.length; i++) {
-      add = add + array2[i];
+    if (array2.length == 0) {
+      this.setState({
+        total: 0
+      })
+      this.setState({
+        low: 0
+      })
+      this.setState({
+        high: 0
+      })
+      this.setState({
+        myArray: []
+      })
+    } else {
+      this.setState({ 
+        myArray: this.state.myArray.splice(1) // to delete first element in the last time list (the last element added)
+      })
+      this.setState({
+        low: (Math.min(...array2)*100)
+      })
+      this.setState({
+        high: (Math.max(...array2)*100)
+      })
+      // find average
+      for (var i=0; i<array2.length; i++) {
+        add = add + array2[i];
+      }
+      this.setState({
+        total: add*100
+      })
     }
-
-
-    this.setState({
-      total: add*100
-    })
-
-
-
-
-
- 
-
     this.startBtn.focus();
   };
 
@@ -239,9 +252,20 @@ export default class Home extends React.Component {
       <p className="text" align='left'>Press the <b>spacebar</b> to start/stop the timer.</p>
       <p className="text" align='left'>Press the <b>c</b> button to clear everything.</p>
       <p className="text" align='left'>Press the <b>d</b> button to delete the last time.</p>
+      <p className="text" align='left'>Lastly, click the button below to add your time to a database </p>
+      <p className="text" align='left'>of all users of the site.</p>
+
+      <p><input type='text' align='left' value={this.state.name} onChange={this.handleUpdate.bind(this)} /></p>
+
+      <button onClick={this.handleAddName}> Add Name </button>
 
 
-	      <div align='center' className="text" height="200px">
+
+
+
+      <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='420' height='300' /> </div>
+
+	      <div align='center' className="center" height="200px">
 	        <input 
 	          value={this.state.milliSecondsElapsed/100}
 	          onChange={this.updateState}
@@ -297,6 +321,9 @@ export default class Home extends React.Component {
         </table>
 
       </div>
+
+
+
       </Layout>
 
 
