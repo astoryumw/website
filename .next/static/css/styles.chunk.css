@@ -1,31 +1,37 @@
 .testMe {
-  color: red; }
+  color: red;
+}
 
 .background {
   background-color: #87CEEB;
   color: #FFFFFF;
   background-size: cover;
-  border: 1px solid black; }
+  border: 1px solid black;
+}
 
 .text {
-  color: black; }
+  color: black;
+}
 
 .table {
   border: 5px solid #000000;
   max-height: 200px;
   overflowY: auto;
   display: block;
-  overflow: scroll; }
+  overflow: scroll;
+}
 
 .headerBackground {
   color: black;
-  background-size: cover; }
+  background-size: cover;
+}
 
 .fixed {
   position: fixed;
-  bottom: 62px; }
+  bottom: 62px;
+}
 
 .center {
   margin-left: 10px;
-  color: black; }
-
+  color: black;
+}

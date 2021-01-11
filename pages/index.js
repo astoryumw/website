@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
+// import {getInfo} from '../lib/util';
+import { addName } from "../lib/util";
+import App from "../lib/App.js";
 
 /* I should write a delete last button */
 
@@ -19,6 +22,9 @@ export default class Home extends React.Component {
       count: 0,
       last: 0, // the last element recieved
       timerInProgress: false, // state to detect whether timer has started
+      startTime: 0,
+      endTime: 0,
+      timeDiff: 0,
     };
     this.updateState = this.updateState.bind(this);
     this.textInput = React.createRef();
@@ -40,15 +46,6 @@ export default class Home extends React.Component {
     this.setState({ milliSecondsElapsed: e.target.milliSecondsElapsed });
   }
 
-  handleUpdate(evt) {
-    this.setState({name: evt.target.value});
-  }
-
-  async handleAddName(evt) {
-    const user = await addInfo(this.state.name);
-    this.setState({user});
-  }
-  
 
   keyPress = (e) => {
     if (e.keyCode === 32) {
@@ -70,6 +67,11 @@ export default class Home extends React.Component {
   };
 
   handleStart = () => {
+
+    this.setState({
+      startTime: Date.now()
+    })
+
     if (this.state.timerInProgress === true) return;
 
     this.setState({
@@ -141,11 +143,13 @@ export default class Home extends React.Component {
       count: 1
     })
 
+    this.setState({
+      endTime: Date.now()
+    })
 
-
-    // it makes the first value equal to the average, then averages the second value on the third run
-    // so on, so forth
-    
+    this.setState({
+      timeDiff: this.state.endTime - this.state.startTime
+    })
 
   };
 
@@ -226,9 +230,6 @@ export default class Home extends React.Component {
   };
 
 
-  // find the average AT EVERY GO 
-  // <td className="text">{this.state.myArray.join(", ")}</td> line 180
-  // "striped bordered hover" was using this in table but it was giving me an error
   render() {
     const myTotal = this.state.total;
     return (
@@ -249,17 +250,14 @@ export default class Home extends React.Component {
         </tbody>
       </Table>
 
-      <p className="text" align='left'>Press the <b>spacebar</b> to start/stop the timer.</p>
-      <p className="text" align='left'>Press the <b>c</b> button to clear everything.</p>
-      <p className="text" align='left'>Press the <b>d</b> button to delete the last time.</p>
-      <p className="text" align='left'>Lastly, click the button below to add your time to a database </p>
-      <p className="text" align='left'>of all users of the site.</p>
+      <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the timer.</p>
+      <p className="text" align='left'> &ensp; Press the <b>c</b> button to clear everything.</p>
+      <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
+      <p className="text" align='left'> &ensp; Lastly, write your name below and click the button to add </p>
+      <p className="text" align='left'> &ensp; your last time to a database of all users of the site.</p>
 
-      <p><input type='text' align='left' value={this.state.name} onChange={this.handleUpdate.bind(this)} /></p>
-
-      <button onClick={this.handleAddName}> Add Name </button>
-
-
+      
+      <App />
 
 
 
@@ -330,3 +328,5 @@ export default class Home extends React.Component {
     );
   }
 }
+
+

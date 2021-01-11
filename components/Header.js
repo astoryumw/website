@@ -11,6 +11,9 @@ export default function Header() {
 			<Link href="/">
 				<a style={linkStyle} className='text'>Home</a>
 			</Link>
+			<Link href="/times">
+				<a style={linkStyle} className='text'>Times</a>
+			</Link>
 			<Link href="/guide">
 				<a style={linkStyle} className='text'>The Beginners Method</a>
 			</Link>
