@@ -2,16 +2,17 @@ import React, {Component} from "react";
 import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
-// import {getInfo} from '../lib/util';
 import { addName } from "../lib/util";
 import App from "../lib/App.js";
 
 /* I should write a delete last button */
 
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {name:"..."};
+    // this.state = {difference: 0};
     this.state = {
       myArray: [], // <- add initial empty array
       milliSecondsElapsed: 0,
@@ -23,8 +24,6 @@ export default class Home extends React.Component {
       last: 0, // the last element recieved
       timerInProgress: false, // state to detect whether timer has started
       startTime: 0,
-      endTime: 0,
-      timeDiff: 0,
     };
     this.updateState = this.updateState.bind(this);
     this.textInput = React.createRef();
@@ -89,6 +88,7 @@ export default class Home extends React.Component {
       );
     }, 10);
   };
+
   handleStop = () => {
     if (this.state.average === 0) { // if its the first go through, average is set to first value
       this.setState({
@@ -143,13 +143,8 @@ export default class Home extends React.Component {
       count: 1
     })
 
-    this.setState({
-      endTime: Date.now()
-    })
-
-    this.setState({
-      timeDiff: this.state.endTime - this.state.startTime
-    })
+    const difference = Date.now() - this.state.startTime;
+    // this.props.onStop.(difference);
 
   };
 
@@ -174,6 +169,7 @@ export default class Home extends React.Component {
     })
 
     this.startBtn.focus();
+
 
   };
 
@@ -232,6 +228,7 @@ export default class Home extends React.Component {
 
   render() {
     const myTotal = this.state.total;
+    // const difference = this.state.endTime - this.state.startTime;
     return (
 	    <Layout>
       <div className='background' style={{height:575}}>
@@ -258,6 +255,7 @@ export default class Home extends React.Component {
 
       
       <App />
+      <redux align="center"/>
 
 
 
