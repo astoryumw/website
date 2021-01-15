@@ -5,8 +5,6 @@ import "../styles.scss"
 import { addName } from "../lib/util";
 import App from "../lib/App.js";
 
-/* I should write a delete last button */
-
 
 export default class Home extends React.Component {
   constructor(props) {
