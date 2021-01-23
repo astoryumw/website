@@ -5,7 +5,6 @@ import "../styles.scss"
 import { addName } from "../lib/util";
 import App from "../lib/App.js";
 
-
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +21,7 @@ export default class Home extends React.Component {
       last: 0, // the last element recieved
       timerInProgress: false, // state to detect whether timer has started
       startTime: 0,
+      endTime: 0,
     };
     this.updateState = this.updateState.bind(this);
     this.textInput = React.createRef();
@@ -141,8 +141,9 @@ export default class Home extends React.Component {
       count: 1
     })
 
-    const difference = Date.now() - this.state.startTime;
-    // this.props.onStop.(difference);
+    this.setState({
+      endTime: Date.now()
+    })
 
   };
 
@@ -226,7 +227,6 @@ export default class Home extends React.Component {
 
   render() {
     const myTotal = this.state.total;
-    // const difference = this.state.endTime - this.state.startTime;
     return (
 	    <Layout>
       <div className='background' style={{height:575}}>
@@ -248,16 +248,15 @@ export default class Home extends React.Component {
       <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the timer.</p>
       <p className="text" align='left'> &ensp; Press the <b>c</b> button to clear everything.</p>
       <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
-      <p className="text" align='left'> &ensp; Lastly, write your name below and click the button to add </p>
-      <p className="text" align='left'> &ensp; your last time to a database of all users of the site.</p>
-
-      
+      <p className="text" align='left'> &ensp; Lastly, write your time and the name below </p>
+      <p className="text" align='left'> &ensp; of any of your solves. Then, hit the add button to</p>
+      <p className="text" align='left'> &ensp; add your time to the database!</p>
       <App />
-      <redux align="center"/>
 
 
 
-      <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='420' height='300' /> </div>
+
+      <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='360' height='240' /> </div>
 
 	      <div align='center' className="center" height="200px">
 	        <input 

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export var NUMBER = 'NUMBER';","map":{"version":3,"sources":["/Users/Austin/website/redux/actions.js"],"names":["NUMBER"],"mappings":"AAAA,OAAO,IAAMA,MAAM,GAAG,QAAf","sourcesContent":["export const NUMBER = 'NUMBER';"]},"metadata":{},"sourceType":"module"}

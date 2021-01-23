@@ -29,7 +29,7 @@ const pool = new Pool(config);
 app.post("/addtime", cors(), async (req,res) => {
 	const name = req.body.name;
 	const time = req.body.time;
-	const timeStamp = dateFormat(time, dateFormat.masks.isoDateTime);
+	// const timeStamp = dateFormat(time, dateFormat.masks.isoDateTime);
 	
 	const template = 'INSERT INTO times (name,time) VALUES ($1,$2)';
 	const response = await pool.query(template, [name,time]);
