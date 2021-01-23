@@ -39,7 +39,7 @@ app.post("/addtime", cors(), async (req,res) => {
 });
 
 app.get("/list", async (req,res) => {
-	const template = await pool.query('SELECT * FROM times');
+	const template = await pool.query('SELECT * FROM times ORDER BY time ASC');
 	res.json({times: template.rows});
 
 })
