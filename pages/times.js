@@ -93,35 +93,35 @@ export default class Times extends React.Component {
 					 )}
 					 {!this.state.person3 ? (
 						<div> </div>
-					) : (
+					 ) : (
 					 <div>
 					 	<div align="center" className='text'>4) {this.state.person3}, {this.state.time3}</div>
 					 </div>
 					 )}
 					 {!this.state.person4 ? (
 						<div> </div>
-					) : (
+					 ) : (
 					 <div>
 					 	<div align="center" className='text'>5) {this.state.person4}, {this.state.time4}</div>
 					 </div>
 					 )}
 					 {!this.state.person5 ? (
 						<div> </div>
-					) : (
+					 ) : (
 					 <div>
 					 	<div align="center" className='text'>6) {this.state.person5}, {this.state.time5}</div>
 					 </div>
 					 )}
 					 {!this.state.person6 ? (
 						<div> </div>
-					) : (
+					 ) : (
 					 <div>
 					 	<div align="center" className='text'>7) {this.state.person6}, {this.state.time6}</div>
 					 </div>
 					 )}
 					 {!this.state.person7 ? (
 						<div> </div>
-					) : (
+					 ) : (
 					 <div>
 					 	<div align="center" className='text'>8) {this.state.person7}, {this.state.time7}</div>
 					 </div>
@@ -135,7 +135,7 @@ export default class Times extends React.Component {
 					 )}
 					 {!this.state.person9 ? (
 						<div> </div>
-					) : (
+					 ) : (
 					 <div>
 					 	<div align="center" className='text'>10) {this.state.person9}, {this.state.time9}</div>
 					 </div>
