@@ -224,6 +224,7 @@ export default class Home extends React.Component {
     this.startBtn.focus();
   };
 
+//       <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='360' height='240' /> </div>
 
   render() {
     const myTotal = this.state.total;
@@ -254,9 +255,8 @@ export default class Home extends React.Component {
       <App />
 
 
+      <div className="fixed"> <img src="../static/IMG_4152.png" align='left' width='280' height='240' /> </div>
 
-
-      <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='360' height='240' /> </div>
 
 	      <div align='center' className="center" height="200px">
 	        <input 
