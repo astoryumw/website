@@ -251,7 +251,7 @@ export default class Home extends React.Component {
       <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
       <p className="text" align='left'> &ensp; Lastly, write your time and the name below </p>
       <p className="text" align='left'> &ensp; of any of your solves. Then, hit the add button to</p>
-      <p className="text" align='left'> &ensp; add your time to the database!</p>
+      <p className="text" align='left'> &ensp; add your time to the database!-test here-</p>
       <App />
 
 

@@ -1,5 +1,5 @@
 import Layout from '../components/MyLayout.js';
-import { getTime } from '../lib/utils';
+//import { getTime } from '../lib/utils';
 
 export default class Times extends React.Component {
 	state = {
@@ -27,7 +27,7 @@ export default class Times extends React.Component {
 	};
 
 	async componentDidMount() {
-		const url = "http://localhost:3001/list";
+		const url = "http://localhost:3001/api/list";
 		const response = await fetch(url);
 		const data = await response.json();
 		try {
