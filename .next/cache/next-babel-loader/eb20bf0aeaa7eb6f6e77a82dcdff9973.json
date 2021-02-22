@@ -1,0 +1,1 @@
+{"ast":null,"code":"// utils.js (client)\nimport \"isomorphic-fetch\";\nexport function addTime(name, time) {\n  return fetch('http://35.221.40.223/api/addtime', {\n    method: 'POST',\n    headers: {\n      'Content-Type': 'application/json'\n    },\n    body: JSON.stringify({\n      name: name,\n      time: time\n    })\n  });\n}","map":null,"metadata":{},"sourceType":"module"}

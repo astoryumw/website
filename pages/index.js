@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
-import { addName } from "../lib/util";
+import { addTime } from "../lib/util";
 import App from "../lib/App.js";
 
 export default class Home extends React.Component {
@@ -249,9 +249,9 @@ export default class Home extends React.Component {
       <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the timer.</p>
       <p className="text" align='left'> &ensp; Press the <b>c</b> button to clear everything.</p>
       <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
-      <p className="text" align='left'> &ensp; Lastly, write your time and the name below </p>
+      <p className="text" align='left'> &ensp; Lastly, write your name and then the time below </p>
       <p className="text" align='left'> &ensp; of any of your solves. Then, hit the add button to</p>
-      <p className="text" align='left'> &ensp; add your time to the database!-test here-</p>
+      <p className="text" align='left'> &ensp; add your time to the database! <b>Note:</b> Database is currently down. Check back later!</p>
       <App />
 
 
