@@ -44,6 +44,12 @@ app.get("/api/list", async (req,res) => {
 
 })
 
+api.get("/api/rank", async (req,res) => {
+
+	const temp = await pool.query('SELECT t.name,t.time,t.rank FROM (SELECT name,time, RANK() OVER (ORDER BY time ASC) rank FROM times) t WHERE name="Austin"');
+	res.json({rank: temp.rows});
+})
+
 app.get("/api/", (req,res) => {
 	res.json({ message: "We did it!" });
 });
