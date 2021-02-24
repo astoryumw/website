@@ -44,10 +44,18 @@ app.get("/api/list", async (req,res) => {
 
 })
 
-api.get("/api/rank", async (req,res) => {
+// this allows user to search a name up and find the rank
+app.get("/api/rank", async (req,res) => {
+	try {
+		const name = req.query.name;
 
-	const temp = await pool.query('SELECT t.name,t.time,t.rank FROM (SELECT name,time, RANK() OVER (ORDER BY time ASC) rank FROM times) t WHERE name="Austin"');
-	res.json({rank: temp.rows});
+		const temp = 'SELECT name,time,rank FROM (SELECT name,time, RANK() OVER (ORDER BY time ASC) rank FROM times) t WHERE name=$1';
+		const resp = await pool.query(temp,[name]);
+		res.json({rank: resp.rows});
+	} catch (err) {
+
+	}
+
 })
 
 app.get("/api/", (req,res) => {
