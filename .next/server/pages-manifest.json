@@ -1,10 +1,6 @@
 {
-  "/": "pages/index.html",
-  "/mystory": "pages/mystory.html",
-  "/stopwatch": "pages/stopwatch.html",
-  "/times": "pages/times.html",
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/times": "pages/times.js"
 }

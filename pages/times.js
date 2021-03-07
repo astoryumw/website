@@ -1,5 +1,6 @@
 import Layout from '../components/MyLayout.js';
 //import { getTime } from '../lib/utils';
+import Search from './search'; 
 
 export default class Times extends React.Component {
 	state = {
@@ -27,7 +28,7 @@ export default class Times extends React.Component {
 	};
 
 	async componentDidMount() {
-		const url = "http://35.194.72.130/api/list";
+		const url = "http://localhost:3001/api/list";
 		const response = await fetch(url);
 		const data = await response.json();
 		try {
@@ -68,8 +69,13 @@ export default class Times extends React.Component {
 			<Layout>
 			<div className='background' style={{height:575}}>
 			<div className="fixed"> <img src="../static/IMG_4152.png" align='left' width='280' height='240' /> </div>
-			<h1 align='center' className='text'>Best Times</h1>
+			
+			<table align='left'>
+				<Search />
+			</table>
 				<div>
+				<table align='center'>
+					<h1 className='text'>Best Times</h1>
 					{this.state.loading || !this.state.person ? (
 						<div className='text'>There are not any times in the database. Record the first one!</div>
 					) : (	
@@ -140,6 +146,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>10) {this.state.person9}, {this.state.time9}</div>
 					 </div>
 					 )}
+					 </table>
 				</div>
 			</div>
 			</Layout>

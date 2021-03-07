@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
 const Pool = require("pg").Pool;
 const config = {
 	host: "localhost",
-	user: "postgres",
+	user: "Austin", // this is user: "postgres" on cloud
 	password: "astros5",
 	database: "cubing"
 };
@@ -56,6 +56,16 @@ app.get("/api/rank", async (req,res) => {
 
 	}
 
+})
+
+// find length of table (amount of entries)
+app.get("/api/length", async (req,res) => {
+	try {
+		const temp = await pool.query('SELECT COUNT(*) AS rows FROM times');
+		res.json({size: temp.rows});
+	} catch (err) {
+
+	}
 })
 
 app.get("/api/", (req,res) => {
