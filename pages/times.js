@@ -28,7 +28,7 @@ export default class Times extends React.Component {
 	};
 
 	async componentDidMount() {
-		const url = "http://localhost:3001/api/list";
+		const url = "http://35.194.72.130/api/list";
 		const response = await fetch(url);
 		const data = await response.json();
 		try {
@@ -83,6 +83,7 @@ export default class Times extends React.Component {
 						<div align="center" className='text'>1) {this.state.person}, {this.state.time}</div>
 					 </div>
 					)}
+					<p></p>
 					{!this.state.person1 ? (
 						<div> </div>
 					) : (
@@ -90,6 +91,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>2) {this.state.person1}, {this.state.time1}</div>
 					 </div>
 					 )}
+					<p></p>
 					{!this.state.person2 ? (
 						<div> </div>
 					) : (
@@ -97,6 +99,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>3) {this.state.person2}, {this.state.time2}</div>
 					 </div>
 					 )}
+					 <p></p>
 					 {!this.state.person3 ? (
 						<div> </div>
 					 ) : (
@@ -104,6 +107,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>4) {this.state.person3}, {this.state.time3}</div>
 					 </div>
 					 )}
+					<p></p>
 					 {!this.state.person4 ? (
 						<div> </div>
 					 ) : (
@@ -111,6 +115,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>5) {this.state.person4}, {this.state.time4}</div>
 					 </div>
 					 )}
+					 <p></p>
 					 {!this.state.person5 ? (
 						<div> </div>
 					 ) : (
@@ -118,6 +123,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>6) {this.state.person5}, {this.state.time5}</div>
 					 </div>
 					 )}
+					<p></p>
 					 {!this.state.person6 ? (
 						<div> </div>
 					 ) : (
@@ -125,6 +131,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>7) {this.state.person6}, {this.state.time6}</div>
 					 </div>
 					 )}
+					 <p></p>
 					 {!this.state.person7 ? (
 						<div> </div>
 					 ) : (
@@ -132,6 +139,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>8) {this.state.person7}, {this.state.time7}</div>
 					 </div>
 					 )}
+					<p></p>
 					 {!this.state.person8 ? (
 						<div> </div>
 					) : (
@@ -139,6 +147,7 @@ export default class Times extends React.Component {
 					 	<div align="center" className='text'>9) {this.state.person8}, {this.state.time8}</div>
 					 </div>
 					 )}
+					 <p></p>
 					 {!this.state.person9 ? (
 						<div> </div>
 					 ) : (
