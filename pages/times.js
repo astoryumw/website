@@ -68,7 +68,7 @@ export default class Times extends React.Component {
 			<Layout>
 			<div className='background' style={{height:575}}>
 			<div className="fixed"> <img src="../static/IMG_4152.png" align='left' width='280' height='240' /> </div>
-			<h1 align='center' className='text'>Best Times of the Month</h1>
+			<h1 align='center' className='text'>Best Times</h1>
 				<div>
 					{this.state.loading || !this.state.person ? (
 						<div className='text'>There are not any times in the database. Record the first one!</div>

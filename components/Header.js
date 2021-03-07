@@ -14,9 +14,6 @@ export default function Header() {
 			<Link href="/times">
 				<a style={linkStyle} className='text'>Times</a>
 			</Link>
-			<Link href="/mystory">
-				<a style={linkStyle} className='text'> My Story</a>
-			</Link>
 		</div>
 	)
 }
