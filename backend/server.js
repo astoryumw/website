@@ -73,5 +73,5 @@ app.get("/api/", (req,res) => {
 });
 
 app.listen(app.get("port"), () => {
-	console.log('Server at: http://localhost:${app.get("port")}/');
+	console.log('Server at: http://localhost:${app.get("port")}');
 });

@@ -14,5 +14,6 @@ export default function Layout(props) {
       <Header />
       {props.children}
     </div>
+    
   )
 }

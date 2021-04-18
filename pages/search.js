@@ -21,17 +21,17 @@ class Search extends React.Component {
   	async componentDidMount() {
   		const url = "http://35.194.72.130/api/length";
   		const response = await fetch(url);
-		const data = await response.json();
-		// console.log(data.rows);
+  		const data = await response.json();
+  		// console.log(data.rows);
 
-		// this isn't defining anything
-		try {
-			this.setState({
-				length: data.size[0].rows
-			})
-		} catch (err) {
+  		// this isn't defining anything
+  		try {
+  			this.setState({
+  				length: data.size[0].rows
+  			})
+  		} catch (err) {
 
-		}
+  		}
   	}
 
   	render() {

@@ -13,12 +13,19 @@
   color: black;
 }
 
-.table {
+.myTable {
   border: 5px solid #000000;
-  max-height: 200px;
+  max-height: 400px;
   overflowY: auto;
   display: block;
   overflow: scroll;
+  width: 100%;
+}
+
+.antTable {
+  border: none;
+  max-height: 200px;
+  width: 18%;
 }
 
 .headerBackground {

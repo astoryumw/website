@@ -2,6 +2,7 @@ import Layout from '../components/MyLayout.js';
 //import { getTime } from '../lib/utils';
 import Search from './search'; 
 
+
 export default class Times extends React.Component {
 	state = {
 		loading: true,
@@ -68,7 +69,9 @@ export default class Times extends React.Component {
 		return (
 			<Layout>
 			<div className='background' style={{height:575}}>
-			<div className="fixed"> <img src="../static/IMG_4152.png" align='left' width='280' height='240' /> </div>
+			<table align='left'>
+        		<div className="fixed"> <img src="../static/IMG_4152.png" width='20%' height='20%' /> </div>
+      		</table>
 			
 			<table align='left'>
 				<Search />
