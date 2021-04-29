@@ -1,7 +1,15 @@
 {
+  "/about": "pages/about.html",
+  "/class": "pages/class.html",
+  "/example": "pages/example.html",
+  "/": "pages/index.html",
+  "/mystory": "pages/mystory.html",
+  "/other": "pages/other.html",
+  "/search": "pages/search.html",
+  "/stopwatch": "pages/stopwatch.html",
+  "/times": "pages/times.html",
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/other": "pages/other.js",
-  "/class": "pages/class.js"
+  "/404": "pages/404.html"
 }

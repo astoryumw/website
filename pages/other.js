@@ -9,7 +9,7 @@ export default class Other extends React.Component {
 				<div className='background' style={{height:575}}>
 				<h1 align='center' className='text'>Other Stuff</h1>
 				<p align='center' className='newAbout'>During January 2021, I sat in my bedroom thinking about what I should do with my boredom. A Computer Science, I started thinking about different projects I could work on. My mind settled on this one; make a cubing website with a stopwatch and give the users a database that they can save their time to, just like the times list. And then, with the knowledge I gained in CPSC 350 Applications of Databases and stack overflow, I took off. 
-
+<p></p>
 <br />I’m graduating in Spring 2021 and due to covid, haven’t been on campus in over a year. Though whether any other students remember this or not, I almost always had my 3x3x3 cube with me. I’m sure most people thought I was a geek who liked cubes, which is definitely true, but I think there is a bit more to it. 
 <p></p>
 <br />In the summer of 2010 I suffered a severe Traumatic Brain Injury. The day of the injury I had gone out mountain climbing. Whether this was what made me fall or not I don’t know, I have no memory of it happening, but the consensus is that I was crossing over a stream on the side of the mountain, slipped, hit my head, and fell unconscious. My body limp, I fell about 50 feet. My father was able to secure my body, a friend’s mother called 911 and thus, the journey began. 
