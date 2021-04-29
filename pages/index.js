@@ -25,6 +25,11 @@ export default class Home extends React.Component {
       endTime: 0,
       loading: false, // this becomes true when something is loaded or first number added
       otherLoading: false,
+      length: 0, // this is the length of the array added for load and save
+      clearMe: false, // if clear make clearMe as true, if clearMe is true then setTimes as 0
+      deleteMe: false,
+      clearOnce: 0,
+      testArray: [],
     };
     this.updateState = this.updateState.bind(this);
     this.textInput = React.createRef();
@@ -36,6 +41,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     window.addEventListener("keypress", this.keyPress);
     this.getTimes();
+    console.log("Hello!");
   }
 
   componentWillUnmount() {
@@ -66,13 +72,48 @@ export default class Home extends React.Component {
     }
     if (e.keyCode === 99) {
       this.clearBtn.click();
+      this.setState({
+        clearMe: true
+      })
+      this.setTimes();
     }
     if (e.keyCode === 100) {
       this.deleteBtn.click();
+      this.setState({
+        deleteMe: true
+      })
+      // console.log("value of deleteMe " + this.state.deleteMe);
+      this.setTimes();
     }
   };
 
   handleStart = () => {
+
+    this.setState({
+      clearMe: false
+    })
+
+    this.setState({
+      deleteMe: false
+    })
+
+    if (isNaN(this.state.low)) {
+      this.setState({
+        low: 0
+      })
+    }
+
+    if (isNaN(this.state.high)) {
+      this.setState({
+        high: 0
+      })
+    }
+
+    if (isNaN(this.state.total)) {
+      this.setState({
+        total: 0
+      })
+    }
 
     this.setState({
       startTime: Date.now()
@@ -161,6 +202,14 @@ export default class Home extends React.Component {
       myOldArray: this.state.myArray
     })
 
+    this.setState({
+      length: this.state.length + 1
+    })
+
+    this.setState({
+      testArray: this.state.myArray
+    })
+    // console.log(this.state.length);
     this.setTimes();
     // console.log(this.state.milliSecondsElapsed);
 
@@ -185,10 +234,18 @@ export default class Home extends React.Component {
     this.setState({
       range: 0
     })
+    this.setState({
+      length: 0
+    })
+    this.setState({
+      clearMe: true
+    })
+
+    // console.log(this.state.clearMe + "in the clear");
     this.setTimes();
     this.startBtn.focus();
 
-    
+    // console.log("Clear");
 
   };
 
@@ -221,9 +278,11 @@ export default class Home extends React.Component {
         myArray: []
       })
     } else {
+      // console.log("the array before delete " + this.state.myArray);
       this.setState({ 
         myArray: this.state.myArray.splice(1) // to delete first element in the last time list (the last element added)
       })
+      // console.log("the array after delete " + this.state.myArray);
       this.setState({
         low: (Math.min(...array2)*100)
       })
@@ -238,95 +297,240 @@ export default class Home extends React.Component {
         total: add*100
       })
     }
-    this.setTimes();
+    this.setState({
+      length: this.state.length - 1
+    })
+    this.setState({
+      deleteMe: true
+    })
+    // console.log(this.state.deleteMe);
+
+    // this.setState({
+    //   myOldArray: myOldArray
+    // })
+
+    // this.setTimes();
     this.startBtn.focus();
+
+
+
+    // console.log(this.state.myArray + " this is myArray");
+    // console.log(this.state.myOldArray + " this is myOldArray");
+
+    // console.log(this.state.testArray);
+
+    // console.log("Delete");
+
   };
 
+  // for some reason after you clear and reload '0,' is there
   setTimes() {
-    let obj = this.state.myArray;
-    localStorage.setItem('myTimes', JSON.stringify(obj));
-    // console.log(obj);
-    let obj1 = this.state.low;
-    localStorage.setItem('lowTime', JSON.stringify(obj1));
-    if (this.state.milliSecondsElapsed/100 > this.state.high) {
-      let obj2 = this.state.milliSecondsElapsed/100;
-      localStorage.setItem('highTime', JSON.stringify(obj2));
+    let obj = [];
+    // console.log(this.state.clearMe + " clearMe");
+    if (this.state.clearMe == true) {
+        obj = [];
+        localStorage.setItem('times', JSON.stringify(obj));
+        // console.log(obj);
+
+        let obj1 = 0;
+        localStorage.setItem('last', JSON.stringify(obj1));
+
+        let obj2 = 0;
+        localStorage.setItem('list', JSON.stringify(obj2));
+
+        let obj3 = 0;
+        localStorage.setItem('theTotal', JSON.stringify(obj3));
+
+        let obj4 = 0;
+        localStorage.setItem('fastest', JSON.stringify(obj4));
+
+        let obj5 = 0;
+        localStorage.setItem('slowest', JSON.stringify(obj5));
+
+        let obj6 = false;
+        localStorage.setItem('deleteMeTrue', JSON.stringify(obj6));
+    } else if (this.state.deleteMe == true) {
+      obj = this.state.myOldArray;
+      this.setState({
+        myArray: this.state.myOldArray
+      })
+      // console.log(this.state.myArray);
+      localStorage.setItem('times', JSON.stringify(obj));
+      // console.log(obj + " I'm in delete me");
+
+      let obj1 = 0; // there is no last me it was deleted
+      localStorage.setItem('last', JSON.stringify(obj1));
+
+      let obj2 = this.state.length;
+      localStorage.setItem('list', JSON.stringify(obj2));
+
+      let obj3 = this.state.total;
+      localStorage.setItem('theTotal', JSON.stringify(obj3));
+
+
+      let obj4 = this.state.low;
+      localStorage.setItem('fastest', JSON.stringify(obj4));
+      // console.log(obj4);
+
+      let obj5 = this.state.high;
+      localStorage.setItem('slowest', JSON.stringify(obj5));
+
+      let obj6 = true;
+      localStorage.setItem('deleteMeTrue', JSON.stringify(obj6));
+
+      // var newTotal = 0
+      // if (isNaN(this.state.total)) {
+      //   for (var x=0; x<this.state.myOldArray.length; x++) {
+      //     newTotal = this.state.myOldArray[x];
+      //   }
+      //   obj3 = newTotal;
+      //   localStorage.setItem('theTotal', JSON.stringify(obj3));
+      // }
+
     } else {
-      let obj2 = this.state.high;
-      localStorage.setItem('highTime', JSON.stringify(obj2));
+        obj = this.state.myArray;
+        localStorage.setItem('times', JSON.stringify(obj));
+        // console.log(obj);
+
+        let obj1 = this.state.milliSecondsElapsed/100;
+        localStorage.setItem('last', JSON.stringify(obj1));
+        // console.log(obj1);
+
+        let obj2 = this.state.length + 1;
+        localStorage.setItem('list', JSON.stringify(obj2));
+        // console.log(obj2 + " setlength");
+
+        // console.log(this.state.total)
+        let obj3 = this.state.total + this.state.milliSecondsElapsed;
+        localStorage.setItem('theTotal', JSON.stringify(obj3));
+        // console.log(obj3 + " total");
+
+        let obj4 = this.state.low;
+        // console.log(obj4 + " " + this.state.low);
+        let obj6 = this.state.milliSecondsElapsed;
+        // console.log(obj6);
+        localStorage.setItem('fastest', JSON.stringify(obj6));
+        if (obj4 < obj6 && obj4 != 0) {
+          localStorage.setItem('fastest', JSON.stringify(obj4));
+        } 
+        // console.log(obj4 < obj6);
+
+        let obj5 = this.state.high;
+        localStorage.setItem('slowest', JSON.stringify(obj6));
+        if (obj5 > obj6) {
+          localStorage.setItem('slowest', JSON.stringify(obj5));
+        }
+
+        obj6 = false;
+        localStorage.setItem('deleteMeTrue', JSON.stringify(obj6));
+      }
+    if (isNaN(this.state.low)) {
+      this.setState({
+        low: 0
+      })
     }
-    // console.log(obj2);
-    let obj3 = this.state.total;
-    localStorage.setItem('totalTime', JSON.stringify(obj3));
 
-    // add obj for last time, then add that to the array
-    let obj4 = this.state.milliSecondsElapsed/100;
-    localStorage.setItem('lastTime', JSON.stringify(obj4));
-    // console.log(obj4 + " obj4");
+    if (isNaN(this.state.high)) {
+      this.setState({
+        high: 0
+      })
+    }
 
+    if (isNaN(this.state.total)) {
+      // console.log(this.state.myOldArray);
+      // let current=this.state.myOldArray[0];
+      // const sum = obj.map(v => v).reduce((sum, current) => sum + current, 0);
+      // console.log(sum);
+      this.setState({
+        total: 0
+      })
+      // console.log(this.state.total);
+      this.setState({
+        length: 0
+      })
+      alert("There was an error. Restarting Average, Fastest, Slowest, and Range.")
+    }
   }
 
   // retrieve times from localStorage
   getTimes() {
-    let data = localStorage.getItem('myTimes'); // average, doesn't include last time
-    data = JSON.parse(data);
-    this.setState({ myArray: data });
-    // console.log(this.state.myArray);
+    let myTimes = localStorage.getItem('times');
+    myTimes = JSON.parse(myTimes); // this is array
+    // console.log(myTimes);
 
-    let data1 = localStorage.getItem('lowTime'); // fastest time
-    data1 = JSON.parse(data1);
-    // console.log(data1 + " data1");
-    this.setState({ low: data1 });
-    // console.log(this.state.low);
+    let myLast = localStorage.getItem('last');
+    myLast = JSON.parse(myLast);
 
-    let data2 = localStorage.getItem('highTime'); // slowest time
-    data2 = JSON.parse(data2);
-    this.setState({ high: data2 });
+    let myList = localStorage.getItem('list');
+    myList = JSON.parse(myList);
 
-    let data3 = localStorage.getItem('totalTime'); // total time used with average
-    // data3 = JSON.parse(data3);
-    // this.setState({ total: data3 });
-    // console.log(data3 + " total");
+    let myTruth = localStorage.getItem('deleteMeTrue');
+    myTruth = JSON.parse(myTruth);
+    // console.log(myTruth);
 
-    let data4 = localStorage.getItem('lastTime'); // last time
-    let data5 = JSON.parse(data4) + (JSON.parse(data3)/100); // add last time with total
-    // console.log(data5 + " last");
-    this.setState({ last: data5*100 });
-    // console.log(this.state.last);
 
-    this.setState({ otherLoading: true });
 
-    // for some reason its taking last as 0
-    this.setState(previousState => ({
-      myArray: [data4, ...previousState.myArray ] // you can't set a variable (this.state.last) in this method and then use it here
-    }));
-
-    // console.log(this.state.myArray);
-
-    this.setState({ total: data5*100});
-    // console.log(this.state.myArray.length);
-
-    if (data1>data4) { // if last number is less than lowTime
-      this.setState({ low: data4*100 })
+    // // this for loop is what causes the program to add undefined times
+    if (myTimes !== null) {
+      for (var i=1; i<myTimes.length; i++) {
+        myTimes[i] = " " + myTimes[i]; 
+      }
     }
 
-    if (data2 < data4) { // if last number is higher than highTime
-      this.setState({ high: data4*100 })
+    if (myLast!==0) {
+      this.setState(previousState => ({
+        myArray: [myLast, myTimes]
+      }));
+    } else if (myTruth == true) { // maybe it would work by adding more items here, ehh
+      // console.log("I'm here");
+      this.setState({
+        myArray: [myTimes]
+      });
+      // console.log("Hi!");
+      this.setState({
+        deleteMe: false
+      })
+
+    } else {
+      this.setState({
+        myArray: []
+      });
     }
 
+    // console.log(myLast + " " + myTimes);
 
+
+    let myTotal = localStorage.getItem('theTotal');
+    myTotal = JSON.parse(myTotal);
+    // console.log(myTotal + " gettotal");
+
+    this.setState({
+      total: myTotal
+    });
+
+    this.setState({ length: myList });
+    // console.log(myList + " getlength");
+
+    let myFastest = localStorage.getItem('fastest');
+    myFastest = JSON.parse(myFastest);
+    // console.log(myFastest);
+    this.setState({
+      low: myFastest
+    });
+
+    let mySlowest = localStorage.getItem('slowest');
+    mySlowest = JSON.parse(mySlowest);
+    this.setState({
+      high: mySlowest
+    });
+
+    // console.log("loading myarray" + this.state.myArray);
+    if (this.state.myArray===",") {
+      this.setState({
+        myArray: []
+      })
+    }
   }
-
-     /*   {!this.state.loading && !this.state.myArray.length ? (
-        <div>
-          <button onClick={ () => this.getTimes() }>Load Times</button>
-          <p className='text'>This button will load your last times!</p>
-        </div>
-      ) : (
-        <p></p>
-      )}
-      */
-
 
 //       <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='360' height='240' /> </div>
 
@@ -370,9 +574,7 @@ export default class Home extends React.Component {
       <App />
 
 
-      <table align='left'>
-        <div className="fixed"> <img src="../static/IMG_4152.png" width='15%' height='15%' /> </div>
-      </table>
+
 
 	      <div align='center' className="center" height="200px">
 	        <input 
@@ -416,7 +618,7 @@ export default class Home extends React.Component {
           <tbody>
             <tr>
               <td>{myTotal ? (
-                  <td>{(this.state.total / this.state.myArray.length / 100).toFixed(2)}</td>
+                  <td>{(this.state.total / this.state.length / 100).toFixed(2)}</td>
                 ) : (
                   <td> 0 </td>
                 )}</td>

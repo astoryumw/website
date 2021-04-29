@@ -69,9 +69,6 @@ export default class Times extends React.Component {
 		return (
 			<Layout>
 			<div className='background' style={{height:575}}>
-			<table align='left'>
-        		<div className="fixed"> <img src="../static/IMG_4152.png" width='15%' height='15%' /> </div>
-      		</table>
 			
 			<table align='left'>
 				<Search />

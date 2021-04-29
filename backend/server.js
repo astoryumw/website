@@ -38,6 +38,31 @@ app.post("/api/addtime", cors(), async (req,res) => {
 
 });
 
+app.post("/api/addText", async (req,res) => {
+	// console.log(req.query.para);
+	// console.log(req.body.para);
+	const para = req.query.para;
+	// console.log(para);
+	const temp = 'INSERT INTO class (para) VALUES ($1)';
+	const resp = await pool.query(temp, [para]);
+
+	res.json({ para: para });
+});
+
+app.get("/api/retrieveText", async (req,res) => {
+	const template = await pool.query('SELECT * FROM class');
+	res.json({ text: template.rows });
+});
+
+app.get("/api/retrieveLength", async (req,res) => {
+	try {
+		const temp = await pool.query('SELECT COUNT(*) AS rows FROM class');
+		res.json({size: temp.rows});
+	} catch (err) {
+
+	}
+})
+
 app.get("/api/list", async (req,res) => {
 	const template = await pool.query('SELECT * FROM times ORDER BY time ASC');
 	res.json({times: template.rows});
@@ -73,5 +98,5 @@ app.get("/api/", (req,res) => {
 });
 
 app.listen(app.get("port"), () => {
-	console.log('Server at: http://localhost:${app.get("port")}');
+	console.log(`Server at: http://localhost:${app.get("port")}`);
 });

@@ -14,6 +14,12 @@ export default function Header() {
 			<Link href="/times">
 				<a style={linkStyle} className='text'>Times</a>
 			</Link>
+			<Link href="/class">
+				<a style={linkStyle} className='text'>DGST Project</a>
+			</Link>
+			<Link href="/other">
+				<a style={linkStyle} className='text'>Other Stuff</a>
+			</Link>
 		</div>
 	)
 }

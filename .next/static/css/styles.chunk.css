@@ -9,17 +9,33 @@
   border: 1px solid black;
 }
 
+.newBackground {
+  background-color: #87CEEB;
+  color: #FFFFFF;
+  background-size: cover;
+  border: 1px solid black;
+}
+
 .text {
   color: black;
 }
 
 .myTable {
   border: 5px solid #000000;
-  max-height: 400px;
+  max-height: 300px;
   overflowY: auto;
   display: block;
-  overflow: scroll;
+  overflow: auto;
   width: 100%;
+}
+
+.newTable {
+  border: 1px solid #000000;
+  max-height: 800px;
+  overflowY: auto;
+  display: block;
+  overflow: auto;
+  width: 80%;
 }
 
 .antTable {
@@ -41,4 +57,13 @@
 .center {
   margin-left: 10px;
   color: black;
+}
+
+.newAbout {
+  color: black;
+  max-height: 480px;
+  overflowY: auto;
+  display: block;
+  overflow: auto;
+  width: 95%;
 }
