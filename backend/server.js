@@ -19,7 +19,7 @@ app.use(function(req, res, next) {
 const Pool = require("pg").Pool;
 const config = {
 	host: "localhost",
-	user: "Austin", // this is user: "postgres" on cloud
+	user: "postgres", // this is user: "postgres" on cloud
 	password: "astros5",
 	database: "cubing"
 };

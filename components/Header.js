@@ -20,6 +20,9 @@ export default function Header() {
 			<Link href="/other">
 				<a style={linkStyle} className='text'>Other Stuff</a>
 			</Link>
+			<Link href="/browserTest">
+				<a style={linkStyle} className='text'>Testing</a>
+			</Link>
 		</div>
 	)
 }
