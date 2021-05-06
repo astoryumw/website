@@ -3,7 +3,7 @@ import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
 import { addTime } from "../lib/util";
-import App from "../lib/App.js";
+
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -568,14 +568,11 @@ export default class Home extends React.Component {
       <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the timer.</p>
       <p className="text" align='left'> &ensp; Press the <b>c</b> button to clear everything.</p>
       <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
-      <p className="text" align='left'> &ensp; Lastly, write your name and then the time below </p>
-      <p className="text" align='left'> &ensp; of your best time. Then, hit the add button to </p>
-      <p className="text" align='left'> &ensp; add your time to the database! </p>
-      <App />
+      <p className="text" align='left'> &ensp; Lastly, save your best time to the database</p>
+      <p className="text" align='left'> &ensp; and see everyone else's!</p>
+      <p className="text" align='left'> &ensp; To add your time <a className="link" href="http://localhost:3000/times">click here</a>!</p>
 
-
-
-
+        <table align="center" className="centered">
 	      <div align='center' className="center" height="200px">
 	        <input 
 	          value={this.state.milliSecondsElapsed/100}
@@ -627,6 +624,7 @@ export default class Home extends React.Component {
               <td>{(this.state.high/100 - this.state.low/100).toFixed(2)}</td>
             </tr>
           </tbody>
+         </table>
          </table>
 
       </div>

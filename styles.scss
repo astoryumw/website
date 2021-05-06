@@ -69,3 +69,25 @@
 	overflow: auto;
 	width: 95%;
 }
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.link {
+	color: black;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.tableForTimes {
+	border: none;
+	max-height: 300px;
+	overflowY: auto;
+	display: block;
+	overflow: auto;
+	width: 25%;
+}

@@ -37,13 +37,13 @@ class Search extends React.Component {
   	render() {
   		return (
   			<div>
-  			<h3 className="text">Enter a name below to see the rank</h3>
+  			<h4 className="text">Enter a name below to see the rank</h4>
   			<p><input type='text' value={this.state.search} onChange={this.handleUpdate.bind(this)} /></p>
   			<button className="button-style" onClick={this.handleSearch.bind(this)}>Search</button>
 
   			{this.state.user ? <div>
-  				<h3 className='text'> {this.state.user.name}, {this.state.user.time} </h3>
-  				<h3 className='text'> {this.state.user.rank} out of {this.state.length}! </h3>
+  				<h4 className='text'> {this.state.user.name}, {this.state.user.time} </h4>
+  				<h4 className='text'> {this.state.user.rank} out of {this.state.length}! </h4>
   			</div> : <p className="text">Note: If nothing shows up the name hasn't been added yet</p>}
 
   			</div>
