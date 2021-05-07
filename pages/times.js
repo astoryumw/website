@@ -17,14 +17,14 @@ export default class browsersTest extends React.Component {
 		const url = "http://35.194.72.130/api/list";
 		const response = await fetch(url);
 		const data = await response.json();
-		console.log(data.times.length);
+		// console.log(data.times.length);
 
 		var newData = "";
 
 
 
 		for (var i=0; i<data.times.length; i++) {
-			newData = i+1 + ". " + data.times[i].name + " " + data.times[i].time;
+			newData = i+1 + ". " + data.times[i].name + ", " + data.times[i].time;
 			newData = newData.split('\n').map(str => <p>{str}</p>);
 			
 			this.setState(previousState => ({
@@ -35,7 +35,7 @@ export default class browsersTest extends React.Component {
 			})
 		}
 
-		console.log(this.state.people);
+		// console.log(this.state.people);
 	}
 
 	render() {
@@ -46,9 +46,8 @@ export default class browsersTest extends React.Component {
 						<App />
 						<Search />
 					</table>
-					<h1 align="center" className='text'>Best Times</h1>
-					<table align="center" className="tableForTimes">
-						
+					<table align="right" className="tableForTimes">
+						<h1 align="center" className='text'>Best Times</h1>
 						{this.state.loading || !this.state.people ? (
 							<div className='text'>There are not any times in the database. Record the first one!</div>
 						) : (

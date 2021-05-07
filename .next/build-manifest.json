@@ -31,27 +31,6 @@
       "static/chunks/webpack.js",
       "static/chunks/pages/_error.js"
     ],
-    "/browserTest": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/css/styles.chunk.css",
-      "static/chunks/styles.js",
-      "static/chunks/pages/browserTest.js"
-    ],
-    "/class": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/css/styles.chunk.css",
-      "static/chunks/styles.js",
-      "static/chunks/pages/class.js"
-    ],
-    "/other": [
-      "static/chunks/main.js",
-      "static/chunks/webpack.js",
-      "static/css/styles.chunk.css",
-      "static/chunks/styles.js",
-      "static/chunks/pages/other.js"
-    ],
     "/times": [
       "static/chunks/main.js",
       "static/chunks/webpack.js",
