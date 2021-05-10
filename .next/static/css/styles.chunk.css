@@ -71,7 +71,7 @@
 
 .centered {
   position: fixed;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -89,4 +89,13 @@
   display: block;
   overflow: auto;
   width: 25%;
+}
+
+.newTableForClass {
+  border: 1px solid #000000;
+  max-height: 300px;
+  overflowY: auto;
+  display: block;
+  overflow: auto;
+  width: 80%;
 }

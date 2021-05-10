@@ -5,7 +5,7 @@ import App from "../lib/App.js";
 
 
 
-export default class browsersTest extends React.Component {
+export default class Times extends React.Component {
 	state = {
 		// names: [],
 		// times: [],
@@ -42,11 +42,11 @@ export default class browsersTest extends React.Component {
 		return (
 			<Layout>
 				<div className='background' style={{height:575}}>
-					<table align='left'>
+					<table align='left' width="50%">
 						<App />
 						<Search />
 					</table>
-					<table align="right" className="tableForTimes">
+					<table align="right" className="tableForTimes" width="50%">
 						<h1 align="center" className='text'>Best Times</h1>
 						{this.state.loading || !this.state.people ? (
 							<div className='text'>There are not any times in the database. Record the first one!</div>

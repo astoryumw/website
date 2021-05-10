@@ -4,7 +4,7 @@ const layoutStyle = {
   margin: 20,
   padding: 20,
   border: '2px solid #000000',
-  outline: 'black solid 100px',
+  outline: 'black solid 1000px',
 }
 
 // imports Header pages in the layoutStyle above, index will import this

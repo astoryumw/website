@@ -533,6 +533,12 @@ export default class Home extends React.Component {
   }
 
 //       <div className="fixed"> <img src="/static/IMG_1933.jpeg" align='left' width='360' height='240' /> </div>
+/*          <input 
+            value={this.state.milliSecondsElapsed/100}
+            onChange={this.updateState}
+            ref={this.textInput}
+            readOnly={true}
+          /> */
 
   render() {
     const myTotal = this.state.total;
@@ -574,12 +580,7 @@ export default class Home extends React.Component {
 
         <table align="center" className="centered">
 	      <div align='center' className="center" height="200px">
-	        <input 
-	          value={this.state.milliSecondsElapsed/100}
-	          onChange={this.updateState}
-	          ref={this.textInput}
-	          readOnly={true}
-	        />
+
 
 	        <button onClick={this.handleStart} ref={(ref) => (this.startBtn = ref)}>
 	          START

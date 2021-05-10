@@ -70,7 +70,7 @@ export default class Class extends React.Component {
 		return (
 			<Layout>
 			<div className='newBackground' style={{height:575}} >
-				<h3 className='text'>To all who see it...</h3>
+				<h3 className='text' align="left">To all who see it...</h3>
 				<p className='text'>This page was created off for a project for one of my gen ed classes. The instructions 
 				for the project were pretty simply, "Do something on the web about the web." As I thought 
 				through different ideas, I eventually came to this one; I wanted to create a page where 
@@ -84,7 +84,7 @@ export default class Class extends React.Component {
 
 
 				{this.state.loading ? (
-					<table className='newTable' align="right" height="300px">
+					<table className='newTableForClass' align="right" height="190px">
 						<p className="text">{this.state.myArray}</p>
 
 					</table>
