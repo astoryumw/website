@@ -47,7 +47,7 @@ export default class Times extends React.Component {
 						<Search />
 					</table>
 					<table align="right" className="tableForTimes" width="50%">
-						<h1 align="center" className='text'>Best Times</h1>
+						<h1 className='text'>Best Times</h1>
 						{this.state.loading || !this.state.people ? (
 							<div className='text'>There are not any times in the database. Record the first one!</div>
 						) : (
