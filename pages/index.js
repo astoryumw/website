@@ -545,7 +545,7 @@ export default class Home extends React.Component {
     // console.log(this.state.myArray);
     return (
 	    <Layout>
-      <div className='background' style={{height:575}}>
+      <div className='background' style={{height:595}}>
 
 
 
@@ -571,7 +571,7 @@ export default class Home extends React.Component {
       </table>
       </div>
 
-      <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the timer.</p>
+      <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the stopwatch.</p>
       <p className="text" align='left'> &ensp; Press the <b>c</b> button to clear everything.</p>
       <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
       <p className="text" align='left'> &ensp; Lastly, save your best time to the database</p>
@@ -582,19 +582,19 @@ export default class Home extends React.Component {
 	      <div align='center' className="center" height="200px">
 
 
-	        <button onClick={this.handleStart} ref={(ref) => (this.startBtn = ref)}>
+	        <button onClick={this.handleStart} className="button buttonCircle" ref={(ref) => (this.startBtn = ref)}>
 	          START
 	        </button>
 
-	        <button onClick={this.handleStop} ref={(ref) => (this.stopBtn = ref)}>
+	        <button onClick={this.handleStop} className="button buttonCircle" ref={(ref) => (this.stopBtn = ref)}>
 	          STOP
 	        </button>
 
-          <button onClick={this.clear} ref={(ref) => (this.clearBtn = ref)}>
+          <button onClick={this.clear} className="button buttonCircle" ref={(ref) => (this.clearBtn = ref)}>
             CLEAR 
           </button>
 
-          <button onClick={this.delete} ref={(ref) => (this.deleteBtn = ref)}>
+          <button onClick={this.delete} className="button buttonCircle" ref={(ref) => (this.deleteBtn = ref)}>
             DELETE
           </button>
 
@@ -605,7 +605,7 @@ export default class Home extends React.Component {
 
         <table align="center" width="200px" className="text">
           <thead>
-            <tr height="100px">
+            <tr height="40px">
               <th>Average</th>
               <th>Fastest</th>
               <th>Slowest</th>

@@ -2,5 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/times": "pages/times.js"
+  "/": "pages/index.js",
+  "/times": "pages/times.js",
+  "/class": "pages/class.js"
 }
