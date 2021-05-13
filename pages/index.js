@@ -576,7 +576,7 @@ export default class Home extends React.Component {
       <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
       <p className="text" align='left'> &ensp; Lastly, save your best time to the database</p>
       <p className="text" align='left'> &ensp; and see everyone else's!</p>
-      <p className="text" align='left'> &ensp; To add your time <a className="link" href="http://localhost:3000/times">click here</a>!</p>
+      <p className="text" align='left'> &ensp; To add your time <a className="link" href="http://www.acubestory.com/times">click here</a>!</p>
 
         <table align="center" className="centered">
 	      <div align='center' className="center" height="200px">
