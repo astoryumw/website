@@ -6,7 +6,7 @@ export default class Other extends React.Component {
 	render() {
 		return (
 			<Layout>
-				<div className='background' style={{height:575}}>
+				<div className='background'>
 				<h1 align='center' className='text'>Other Stuff</h1>
 				<p align='center' className='newAbout'>During January 2021, I sat in my bedroom thinking about what I should do with my boredom. A Computer Science student at the time, I started thinking about different projects I could work on. My mind settled on this one; make a cubing website with a stopwatch and give the users a database that they can save their time to, just like the times list. And then, with the knowledge I gained in CPSC 350 Applications of Databases and stack overflow, I took off. 
 <p></p>

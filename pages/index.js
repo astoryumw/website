@@ -41,6 +41,7 @@ export default class Home extends React.Component {
   componentDidMount() {
     window.addEventListener("keypress", this.keyPress);
     this.getTimes();
+    this.startBtn.focus();
     console.log("Hello!");
   }
 
@@ -545,7 +546,7 @@ export default class Home extends React.Component {
     // console.log(this.state.myArray);
     return (
 	    <Layout>
-      <div className='background' style={{height:595}}>
+      <div className='background'>
 
 
 

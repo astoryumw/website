@@ -6,20 +6,25 @@ class Search extends React.Component {
 		super(props);
 		this.state = {search: ""};
 		this.state = {length: 0};
+    this.state = {cube: ""};
 	}
 
-	handleUpdate(evt) {
+	   handleUpdate(evt) {
     	this.setState({search: evt.target.value});
   	}
 
+    handleCube(evt) {
+      this.setState({cube: evt.target.value});
+    }
+
   	async handleSearch(evt) {
-  		const user = await getInfo(this.state.search);
+  		const user = await getInfo(this.state.search,this.state.cube);
   		console.log(user);
   		this.setState({user: user.rank[0]})
   	}
 
   	async componentDidMount() {
-  		const url = "http://35.194.72.130/api/length";
+  		const url = "http://localhost:3001/api/length";
   		const response = await fetch(url);
   		const data = await response.json();
   		// console.log(data.rows);
@@ -39,6 +44,7 @@ class Search extends React.Component {
   			<div>
   			<h4 className="text">Enter a name below to see the rank</h4>
   			<p><input type='text' value={this.state.search} onChange={this.handleUpdate.bind(this)} /></p>
+        <p><input type="text" value={this.state.cube} onChange={this.handleCube.bind(this)} /></p>
   			<button className="button-style" onClick={this.handleSearch.bind(this)}>Search</button>
 
   			{this.state.user ? <div>

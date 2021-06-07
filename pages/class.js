@@ -69,7 +69,7 @@ export default class Class extends React.Component {
 	render() {
 		return (
 			<Layout>
-			<div className='newBackground' style={{height:575}} >
+			<div className='background' >
 				<h3 className='text' align="left">To all who see it...</h3>
 				<p className='text'>This page was created off for a project for one of my gen ed classes. The instructions 
 				for the project were pretty simply, "Do something on the web about the web." As I thought 

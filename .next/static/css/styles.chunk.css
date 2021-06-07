@@ -7,7 +7,10 @@
   color: #FFFFFF;
   background-size: cover;
   border: 1px solid black;
-  max-height: 800px;
+  height: 85vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 }
 
 .newBackground {
@@ -62,7 +65,7 @@
 
 .newAbout {
   color: black;
-  max-height: 480px;
+  max-height: 500px;
   overflowY: auto;
   display: block;
   overflow: auto;

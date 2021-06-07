@@ -9,6 +9,7 @@ app.set("port", 3001);
 
 app.use(bodyParser.json({ type: "application/json" }));
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cors());
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -29,12 +30,15 @@ const pool = new Pool(config);
 app.post("/api/addtime", cors(), async (req,res) => {
 	const name = req.body.name;
 	const time = req.body.time;
+	const cube = req.body.cube;
+	// console.log(req.body.name);
+	// console.log(req.body.cube);
 	// const timeStamp = dateFormat(time, dateFormat.masks.isoDateTime);
 	
-	const template = 'INSERT INTO times (name,time) VALUES ($1,$2)';
-	const response = await pool.query(template, [name,time]);
+	const template = 'INSERT INTO times (name,time,cube) VALUES ($1,$2,$3)';
+	const response = await pool.query(template, [name,time,cube]);
 	
-	res.json({name: name, time: time});
+	res.json({name: name, time: time, cube: cube});
 
 });
 

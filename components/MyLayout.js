@@ -13,7 +13,7 @@ export default function Layout(props) {
     <div style={layoutStyle}>
       <Header />
       {props.children}
-      <div className="fixed"> <img src="../static/IMG_4152.png" width='15%' height='15%' /> </div>
+      <div className="fixed"> <img src="../static/IMG_4152.png" width='12%' height='12%' /> </div>
     </div>
 
     
