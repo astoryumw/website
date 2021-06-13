@@ -87,7 +87,7 @@
 
 .tableForTimes {
   border: none;
-  max-height: 500px;
+  max-height: 415px;
   overflowY: auto;
   display: block;
   overflow: auto;
@@ -118,4 +118,17 @@
 
 .buttonCircle {
   border-radius: 4px;
+}
+
+.buttonTimes {
+  padding: 10px;
+}
+
+.tableForSearch {
+  border: 0px solid #000000;
+  max-height: 130px;
+  overflowY: auto;
+  display: block;
+  overflow: auto;
+  width: 50%;
 }

@@ -2,6 +2,7 @@ import Layout from '../components/MyLayout.js';
 //import { getTime } from '../lib/utils';
 import Search from './search'; 
 import App from "../lib/App.js";
+import "../styles.scss";
 
 /* <button className='button-style' onClick={this.handleRubiks}>Rubiks</button>
 <h1 className='text'>Best Times</h1>
@@ -240,65 +241,79 @@ export default class Times extends React.Component {
 				<div className='background'>
 					<table align='left' width="50%">
 						<App />
+						<Search />
 					</table>
 					<table align="right" className="tableForTimes" width="50%">
 						<h4 className="text">Rubiks Records</h4>
 						{!this.state.click ? (
+							<div>
+							<h4 className="text">Top Times For Each Cube</h4>
+							<div className="text">{this.state.people[0]}</div>
+							<div className="text">{this.state.peopleOH[0]}</div>
+							<div className="text">{this.state.people2x2[0]}</div>
+							<div className="text">{this.state.people4x4[0]}</div>
+							<div className="text">{this.state.people5x5[0]}</div>
+							<div className="text">{this.state.people6x6[0]}</div>
+							<div className="text">{this.state.people7x7[0]}</div>
+							<div className="text">{this.state.peopleOther[0]}</div>
+							<button className='buttonTimes' onClick={this.handleClick}>Click here to see all times for a cube</button>
+							</div>
+						) : this.state.myRubiks ? (
 							<div><h4 className='text'>3x3x3</h4>
 							<div className="text">{this.state.people}</div>
-							<button className='button-style' onClick={this.handleClick}>Select Cube</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) : this.state.myRubiksOH ? (
 							<div><h4 className='text'>3x3x3 OH</h4>
 							<div className="text">{this.state.peopleOH}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) : this.state.my2x2 ? (
 							<div><h4 className='text'>2x2x2 Records</h4>
 							<div className="text">{this.state.people2x2}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) : this.state.my4x4 ? (
 							<div><h4 className='text'>4x4x4 Records</h4>
 							<div className="text">{this.state.people4x4}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) : this.state.my5x5 ? (
 							<div><h4 className='text'>5x5x5 Records</h4>
 							<div className="text">{this.state.people5x5}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) :  this.state.my6x6 ? (
 							<div><h4 className='text'>6x6x6 Records</h4>
 							<div className="text">{this.state.people6x6}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) :  this.state.my7x7 ? (
 							<div><h4 className='text'>7x7x7 Records</h4>
 							<div className="text">{this.state.people7x7}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) : this.state.myOther ? (
 							<div><h4 className='text'>Other cubes</h4>
 							<div className="text">{this.state.peopleOther}</div>
-							<button className='button-style' onClick={this.goBack}>Back</button>
+							<button className='buttonTimes' onClick={this.goBack}>Back</button>
 							</div>
 						) : (
 						<div>
-							<button className='button-style' onClick={this.handleRubiksOH}>3x3x3 OH</button>
-							<button className='button-style' onClick={this.handle2x2}>2x2x2</button>
-							<button className='button-style' onClick={this.handle4x4}>4x4x4</button>
-							<button className='button-style' onClick={this.handle5x5}>5x5x5</button>
-							<button className='button-style' onClick={this.handle6x6}>6x6x6</button>
-							<button className='button-style' onClick={this.handle7x7}>7x7x7</button>
-							<button className='button-style' onClick={this.handleOther}>Other</button>
+							<button className='buttonTimes' onClick={this.handleRubiks}>3x3x3</button>
+							<button className='buttonTimes' onClick={this.handleRubiksOH}>3x3x3 OH</button>
+							<button className='buttonTimes' onClick={this.handle2x2}>2x2x2</button>
+							<button className='buttonTimes' onClick={this.handle4x4}>4x4x4</button>
+							<button className='buttonTimes' onClick={this.handle5x5}>5x5x5</button>
+							<button className='buttonTimes' onClick={this.handle6x6}>6x6x6</button>
+							<button className='buttonTimes' onClick={this.handle7x7}>7x7x7</button>
+							<button className='buttonTimes' onClick={this.handleOther}>Other</button>
 						</div>
 						)}
-						
-						
-						
+
 
 					</table>
+
 				</div>
 			</Layout>
 		)

@@ -77,14 +77,22 @@ app.get("/api/list", async (req,res) => {
 app.get("/api/rank", async (req,res) => {
 	try {
 		const name = req.query.name;
+		// const cube = req.query.cube;
 
-		const temp = 'SELECT name,time,rank FROM (SELECT name,time, RANK() OVER (ORDER BY time ASC) rank FROM times) t WHERE name=$1';
+		const temp = 'SELECT name,rank FROM (SELECT name,time, RANK() OVER (ORDER BY time ASC) rank FROM times) t WHERE name=$1';
 		const resp = await pool.query(temp,[name]);
 		res.json({rank: resp.rows});
 	} catch (err) {
 
 	}
 
+})
+
+app.get("/api/cubes", async (req,res) => {
+	const name = req.query.name;
+	const temp = 'SELECT name,time,cube FROM times WHERE name=$1';
+	const resp = await pool.query(temp, [name]);
+	res.json({ solves: resp.rows });
 })
 
 // find length of table (amount of entries)
