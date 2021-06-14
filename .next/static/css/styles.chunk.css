@@ -97,7 +97,7 @@
 .newTableForClass {
   border: 1px solid #000000;
   max-height: 300px;
-  overflowY: auto;
+  overflow-Y: scroll;
   display: block;
   overflow: auto;
   width: 80%;
@@ -127,8 +127,7 @@
 .tableForSearch {
   border: 0px solid #000000;
   max-height: 130px;
-  overflowY: auto;
   display: block;
-  overflow: auto;
+  overflow-Y: scroll;
   width: 50%;
 }

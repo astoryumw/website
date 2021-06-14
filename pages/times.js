@@ -39,7 +39,7 @@ export default class Times extends React.Component {
 	}
 
 	async componentDidMount() {
-		const url = "http://35.194.72.130/api/list"; // const url = "http://35.194.72.130/api/list";
+		const url = "http://localhost:3001/api/list"; // const url = "http://35.194.72.130/api/list";
 		const response = await fetch(url);
 		const data = await response.json();
 		console.log(data.times);
