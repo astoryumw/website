@@ -36,6 +36,14 @@ export default class Times extends React.Component {
 		my6x6: false,
 		my7x7: false,
 		myOther: false,
+		top3x3: "",
+		top3x3OH: "",
+		top2x2: "",
+		top4x4: "",
+		top5x5: "",
+		top6x6: "",
+		top7x7: "",
+		topOther: "",
 	}
 
 	async componentDidMount() {
@@ -58,6 +66,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count===1) {
+					this.setState({
+						top3x3: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					});
+				}
 				count++;
 			}
 
@@ -70,6 +83,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count1===1) {
+					this.setState({
+						top3x3OH: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					})
+				}
 				count1++;
 			}
 
@@ -82,6 +100,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count4===1) {
+					this.setState({
+						top2x2: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					})
+				}
 				count4++;
 			}
 
@@ -94,6 +117,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count2===1) {
+					this.setState({
+						top4x4: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					})
+				}
 				count2++;
 			}
 
@@ -106,6 +134,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count3===1) {
+					this.setState({
+						top5x5: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					})
+				}
 				count3++;
 			}
 
@@ -118,6 +151,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count5===1) {
+					this.setState({
+						top6x6: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					})
+				}
 				count5++;
 			}
 
@@ -130,6 +168,11 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count6===1) {
+					this.setState({
+						top7x7: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+					})
+				}
 				count6++;
 			}
 
@@ -142,6 +185,9 @@ export default class Times extends React.Component {
 				this.setState({
 					loading: false
 				})
+				if (count7===1) {
+					topOther: data.times[i].name + ", " + data.times[i].time + ", " + data.times[i].cube
+				}
 				count7++;
 			}
 		}
@@ -248,14 +294,22 @@ export default class Times extends React.Component {
 						{!this.state.click ? (
 							<div>
 							<h4 className="text">Top Times For Each Cube</h4>
-							<div className="text">{this.state.people[0]}</div>
-							<div className="text">{this.state.peopleOH[0]}</div>
-							<div className="text">{this.state.people2x2[0]}</div>
-							<div className="text">{this.state.people4x4[0]}</div>
-							<div className="text">{this.state.people5x5[0]}</div>
-							<div className="text">{this.state.people6x6[0]}</div>
-							<div className="text">{this.state.people7x7[0]}</div>
-							<div className="text">{this.state.peopleOther[0]}</div>
+							<div className="text">{this.state.top3x3}</div>
+							<p></p>
+							<div className="text">{this.state.top3x3OH}</div>
+							<p></p>
+							<div className="text">{this.state.top2x2}</div>
+							<p></p>
+							<div className="text">{this.state.top4x4}</div>
+							<p></p>
+							<div className="text">{this.state.top5x5}</div>
+							<p></p>
+							<div className="text">{this.state.top6x6}</div>
+							<p></p>
+							<div className="text">{this.state.top7x7}</div>
+							<p></p>
+							<div className="text">{this.state.topOther}</div>
+							<p></p>
 							<button className='buttonTimes' onClick={this.handleClick}>Click here to see all times for a cube</button>
 							</div>
 						) : this.state.myRubiks ? (
