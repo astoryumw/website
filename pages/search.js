@@ -9,7 +9,7 @@ class Search extends React.Component {
 		this.state = {mySolves: []};
 	}
 
-	   handleUpdate(evt) {
+	handleUpdate(evt) {
     	this.setState({search: evt.target.value});
   	}
 

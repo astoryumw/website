@@ -3,6 +3,7 @@ import Layout from '../components/MyLayout.js';
 import Table from 'react-bootstrap/Table';
 import "../styles.scss"
 import { addTime } from "../lib/util";
+import PopupApp from "../lib/PopupApp.js";
 
 
 export default class Home extends React.Component {
@@ -547,7 +548,7 @@ export default class Home extends React.Component {
     return (
 	    <Layout>
       <div className='background'>
-
+      
 
 
       <div>
@@ -572,12 +573,8 @@ export default class Home extends React.Component {
       </table>
       </div>
 
-      <p className="text" align='left'> &ensp; Press the <b>spacebar</b> to start/stop the stopwatch.</p>
-      <p className="text" align='left'> &ensp; Press the <b>c</b> button to clear everything.</p>
-      <p className="text" align='left'> &ensp; Press the <b>d</b> button to delete the last time.</p>
-      <p className="text" align='left'> &ensp; Lastly, save your best time to the database</p>
-      <p className="text" align='left'> &ensp; and see everyone else's!</p>
-      <p className="text" align='left'> &ensp; To add your time <a className="link" href="http://www.acubestory.com/times">click here</a>!</p>
+      <table align="left" className='centeredButton'>
+      <PopupApp />
 
         <table align="center" className="centered">
 	      <div align='center' className="center" height="200px">
@@ -626,6 +623,7 @@ export default class Home extends React.Component {
               <td>{(this.state.high/100 - this.state.low/100).toFixed(2)}</td>
             </tr>
           </tbody>
+         </table>
          </table>
          </table>
 
